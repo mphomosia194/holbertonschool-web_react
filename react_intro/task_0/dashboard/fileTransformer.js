@@ -1,6 +1,9 @@
-/* eslint-disable */
-module.exports = {
-  process() {
-    return { code: 'module.exports = {};' };
+import path from 'path';
+
+export default {
+  process(sourceText, sourcePath) {
+    return {
+      code: `module.exports = ${JSON.stringify(path.basename(sourcePath))};`,
+    };
   },
 };
