@@ -1,6 +1,18 @@
 .notification-items {
   border: 2px dashed #e1003c;
-  padding: 10px;
+  padding: 20px;
   margin: 20px;
   float: right;
+}
+
+.notification-items ul {
+  padding-left: 20px;
+}
+
+.notification-items li[data-priority='default'] {
+  color: blue;
+}
+
+.notification-items li[data-priority='urgent'] {
+  color: red;
 }
