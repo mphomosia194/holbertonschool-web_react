@@ -34,4 +34,34 @@ describe('App component', () => {
 
     expect(image).toBeInTheDocument();
   });
+
+  test('renders 2 input elements', () => {
+  render(<App />);
+
+  const emailInput = screen.getByLabelText(/email/i);
+  const passwordInput = screen.getByLabelText(/password/i);
+
+  expect(emailInput).toBeInTheDocument();
+  expect(passwordInput).toBeInTheDocument();
+});
+
+  test('renders Email and Password labels', () => {
+    render(<App />);
+
+    const emailLabel = screen.getByText(/email/i);
+    const passwordLabel = screen.getByText(/password/i);
+
+    expect(emailLabel).toBeInTheDocument();
+    expect(passwordLabel).toBeInTheDocument();
+  });
+
+  test('renders OK button', () => {
+    render(<App />);
+
+    const button = screen.getByRole('button', {
+      name: /ok/i,
+    });
+
+    expect(button).toBeInTheDocument();
+  });
 });
