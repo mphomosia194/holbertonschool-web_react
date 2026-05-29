@@ -82,7 +82,7 @@ class App extends Component {
     ];
 
    return (
-  <>
+  <div className = "min-h-screen flex flex-col">
     <Notifications
       displayDrawer={true}
       notifications={notificationsList}
@@ -105,7 +105,7 @@ class App extends Component {
     </BodySection>
 
     <Footer />
-  </>
+  </div>
 );
   }
 }

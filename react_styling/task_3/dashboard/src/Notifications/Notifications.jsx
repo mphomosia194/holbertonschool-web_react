@@ -8,10 +8,10 @@ class Notifications extends Component {
     displayDrawer: false,
   };
 shouldComponentUpdate(nextProps) {
-  return (
-    nextProps.notifications.length >
-    this.props.notifications.length
-  );
+ return (
+	 nectProps.notifications.length >
+	 this.props.notifications.length
+ );
 }
   markAsRead = (id) => {
     console.log(
@@ -31,7 +31,7 @@ shouldComponentUpdate(nextProps) {
 
     return (
   <>
-    <div className="text-right mr-4 mb-2">
+    <div className="text-right mr-4 mt-4">
       Your notifications
     </div>
 
@@ -42,7 +42,7 @@ shouldComponentUpdate(nextProps) {
           border-dashed
           border-[var(--main-color)]
           p-[6px]
-          w-1/4
+          w-[25%]
           ml-auto
           mr-4
         "
