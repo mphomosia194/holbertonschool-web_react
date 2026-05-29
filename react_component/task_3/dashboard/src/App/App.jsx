@@ -10,6 +10,7 @@ import CourseList from '../CourseList/CourseList';
 class App extends Component {
   static defaultProps = {
     logOut: () => {},
+	  isLoggedIn: false,
   };
 
   componentDidMount() {
@@ -39,7 +40,7 @@ class App extends Component {
   };
 
   render() {
-    const isLoggedIn = false;
+    const { isLoggedIn } = this.props;
 
     const notificationsList = [
       {

@@ -18,9 +18,14 @@ describe('App', () => {
   });
 
   test('calls logout when ctrl+h is pressed', () => {
-    const logOutMock = jest.fn();
+    test('calls logout when ctrl+h is pressed', () => {
+  const alertMock = jest
+    .spyOn(window, 'alert')
+    .mockImplementation(() => {});
 
-    render(<App logOut={logOutMock} />);
+  const logOutMock = jest.fn();
+
+  render(<App logOut={logOutMock} />);
 
     fireEvent.keyDown(document, {
       key: 'h',
@@ -28,6 +33,7 @@ describe('App', () => {
     });
 
     expect(logOutMock).toHaveBeenCalledTimes(1);
+     alertMock.mockRestore();
   });
 
   test('shows alert when ctrl+h is pressed', () => {
@@ -59,6 +65,13 @@ describe('App', () => {
     screen.getByText(
       /holberton school news goes here/i
     )
+  ).toBeInTheDocument();
+});
+test('renders CourseList when logged in', () => {
+  render(<App isLoggedIn />);
+
+  expect(
+    screen.getByText(/available courses/i)
   ).toBeInTheDocument();
 });
 });
