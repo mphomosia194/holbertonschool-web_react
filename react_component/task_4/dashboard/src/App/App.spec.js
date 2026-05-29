@@ -17,15 +17,14 @@ describe('App', () => {
     ).toBeInTheDocument();
   });
 
-  test('calls logout when ctrl+h is pressed', () => {
     test('calls logout when ctrl+h is pressed', () => {
-  const alertMock = jest
-    .spyOn(window, 'alert')
-    .mockImplementation(() => {});
+    const alertMock = jest
+      .spyOn(window, 'alert')
+      .mockImplementation(() => {});
 
-  const logOutMock = jest.fn();
+    const logOutMock = jest.fn();
 
-  render(<App logOut={logOutMock} />);
+    render(<App logOut={logOutMock} />);
 
     fireEvent.keyDown(document, {
       key: 'h',
@@ -33,7 +32,8 @@ describe('App', () => {
     });
 
     expect(logOutMock).toHaveBeenCalledTimes(1);
-     alertMock.mockRestore();
+
+    alertMock.mockRestore();
   });
 
   test('shows alert when ctrl+h is pressed', () => {
