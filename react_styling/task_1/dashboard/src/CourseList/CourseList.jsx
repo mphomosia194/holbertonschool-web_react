@@ -4,10 +4,10 @@ function CourseList({
   courses = [],
 }) {
   return (
-    <div className="w-4/5 mx-auto my-10">
+    <div className="w-4/5 mx-auto mt-8 mb-8">
       <table
         id="CourseList"
-        className="w-full border-collapse"
+        className="w-full border-collapse table-fixed"
       >
         <thead>
           <CourseListRow
@@ -24,11 +24,11 @@ function CourseList({
 
         <tbody>
           {courses.length === 0 ? (
-            <CourseListRow
-              textFirstCell="No course available yet"
-              textSecondCell={null}
-            />
-          ) : (
+  <CourseListRow
+    isHeader
+    textFirstCell="No course available yet"
+  />
+) : (
             courses.map((course) => (
               <CourseListRow
                 key={course.id}
