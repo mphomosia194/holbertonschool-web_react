@@ -3,7 +3,7 @@ import {
   screen,
   fireEvent,
 } from '@testing-library/react';
-
+import React from 'react';
 import Notifications from './Notifications';
 
 const notifications = [
@@ -119,4 +119,82 @@ describe('Notifications component', () => {
 
   consoleSpy.mockRestore();
 });
+test(
+  'does not re-render when notifications length stays the same',
+  () => {
+    const { rerender } = render(
+      <Notifications
+        displayDrawer
+        notifications={[
+          {
+            id: 1,
+            type: 'default',
+            value: 'test',
+          },
+        ]}
+      />
+    );
+
+    const instanceText =
+      screen.getByText('test');
+
+    rerender(
+      <Notifications
+        displayDrawer
+        notifications={[
+          {
+            id: 2,
+            type: 'urgent',
+            value: 'changed',
+          },
+        ]}
+      />
+    );
+
+    expect(instanceText).toBeInTheDocument();
+
+    expect(
+      screen.queryByText('changed')
+    ).not.toBeInTheDocument();
+  }
+);
+test(
+  're-renders when notifications length changes',
+  () => {
+    const { rerender } = render(
+      <Notifications
+        displayDrawer
+        notifications={[
+          {
+            id: 1,
+            type: 'default',
+            value: 'test',
+          },
+        ]}
+      />
+    );
+
+    rerender(
+      <Notifications
+        displayDrawer
+        notifications={[
+          {
+            id: 1,
+            type: 'default',
+            value: 'test',
+          },
+          {
+            id: 2,
+            type: 'urgent',
+            value: 'new',
+          },
+        ]}
+      />
+    );
+
+    expect(
+      screen.getByText('new')
+    ).toBeInTheDocument();
+  }
+);
 });
