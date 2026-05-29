@@ -9,7 +9,7 @@ class Notifications extends Component {
   };
 shouldComponentUpdate(nextProps) {
  return (
-	 nectProps.notifications.length >
+	 nextProps.notifications.length >
 	 this.props.notifications.length
  );
 }
