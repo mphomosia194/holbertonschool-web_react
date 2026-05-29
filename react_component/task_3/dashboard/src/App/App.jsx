@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import BodySection from '../BodySection/BodySection';
+import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom';
 import Header from '../Header/Header';
 import Login from '../Login/Login';
 import Footer from '../Footer/Footer';
@@ -79,24 +80,32 @@ class App extends Component {
       },
     ];
 
-    return (
-      <>
-        <Notifications
-          displayDrawer
-          notifications={notificationsList}
-        />
+   return (
+  <>
+    <Notifications
+      displayDrawer
+      notifications={notificationsList}
+    />
 
-        <Header />
+    <Header />
 
-        {isLoggedIn ? (
-          <CourseList courses={coursesList} />
-        ) : (
-          <Login />
-        )}
+    {isLoggedIn ? (
+      <BodySectionWithMarginBottom title="Course list">
+        <CourseList courses={coursesList} />
+      </BodySectionWithMarginBottom>
+    ) : (
+      <BodySectionWithMarginBottom title="Log in to continue">
+        <Login />
+      </BodySectionWithMarginBottom>
+    )}
 
-        <Footer />
-      </>
-    );
+    <BodySection title="News from the School">
+      <p>Holberton School News goes here</p>
+    </BodySection>
+
+    <Footer />
+  </>
+);
   }
 }
 

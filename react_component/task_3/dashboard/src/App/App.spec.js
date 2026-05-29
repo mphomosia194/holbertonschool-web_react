@@ -48,4 +48,17 @@ describe('App', () => {
 
     alertMock.mockRestore();
   });
+  test('renders news section', () => {
+  render(<App />);
+
+  expect(
+    screen.getByText(/news from the school/i)
+  ).toBeInTheDocument();
+
+  expect(
+    screen.getByText(
+      /holberton school news goes here/i
+    )
+  ).toBeInTheDocument();
+});
 });
