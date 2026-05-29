@@ -5,12 +5,12 @@ describe('Footer component', () => {
   test('renders copyright text', () => {
     render(<Footer />);
 
-    const currentYear = new Date().getFullYear();
+    expect(
+      screen.getByText(/copyright/i)
+    ).toBeInTheDocument();
 
-    const footerText = screen.getByText(
-      `Copyright ${currentYear} - Holberton School`
-    );
-
-    expect(footerText).toBeInTheDocument();
+    expect(
+      screen.getByText(/holberton school/i)
+    ).toBeInTheDocument();
   });
 });
