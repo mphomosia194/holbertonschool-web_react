@@ -5,7 +5,7 @@ import NotificationItem from './NotificationItem';
 class Notifications extends Component {
   static defaultProps = {
     notifications: [],
-    displayDrawer: false,
+    displayDrawer: true,
   };
 shouldComponentUpdate(nextProps) {
   return (
