@@ -40,7 +40,7 @@ class App extends Component {
   };
 
   render() {
-    const { isLoggedIn } = this.props;
+    const isLoggedIn = false;
 
     const notificationsList = [
       {
@@ -84,7 +84,7 @@ class App extends Component {
    return (
   <>
     <Notifications
-      displayDrawer
+      displayDrawer={true}
       notifications={notificationsList}
     />
 

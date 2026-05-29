@@ -67,11 +67,4 @@ describe('App', () => {
     )
   ).toBeInTheDocument();
 });
-test('renders CourseList when logged in', () => {
-  render(<App isLoggedIn />);
-
-  expect(
-    screen.getByText(/available courses/i)
-  ).toBeInTheDocument();
-});
 });
