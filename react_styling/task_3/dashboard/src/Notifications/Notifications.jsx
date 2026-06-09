@@ -42,7 +42,7 @@ shouldComponentUpdate(nextProps) {
           border-dashed
           border-[var(--main-color)]
           p-[6px]
-          w-[25%]
+          w-[400px]
           ml-auto
           mr-4
         "

@@ -40,7 +40,7 @@ class App extends Component {
   };
 
   render() {
-    const isLoggedIn = false;
+  const { isLoggedIn } = this.props;
 
     const notificationsList = [
       {

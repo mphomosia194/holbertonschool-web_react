@@ -2,7 +2,7 @@ import WithLogging from '../HOC/WithLogging';
 
 function Login() {
   return (
-    <div className="border-t-2 border-[var(--main-color)] px-8 py-10">
+    <div className="border-t-2 border-[var(--main-color)] p-6">
       <p className="mb-6">
         Login to access the full dashboard
       </p>
