@@ -7,10 +7,49 @@ import Footer from '../Footer/Footer';
 import Notifications from '../Notifications/Notifications';
 import CourseList from '../CourseList/CourseList';
 
+const notificationsList = [
+  {
+    id: 1,
+    type: 'default',
+    value: 'New course available',
+  },
+  {
+    id: 2,
+    type: 'urgent',
+    value: 'New resume available',
+  },
+  {
+    id: 3,
+    type: 'urgent',
+    html: {
+      __html:
+        '<strong>Urgent requirement</strong> - complete by EOD',
+    },
+  },
+];
+
+const coursesList = [
+  {
+    id: 1,
+    name: 'ES6',
+    credit: 60,
+  },
+  {
+    id: 2,
+    name: 'Webpack',
+    credit: 20,
+  },
+  {
+    id: 3,
+    name: 'React',
+    credit: 40,
+  },
+];
+
 class App extends Component {
   static defaultProps = {
     logOut: () => {},
-	  isLoggedIn: false,
+    isLoggedIn: false,
   };
 
   componentDidMount() {
@@ -40,73 +79,34 @@ class App extends Component {
   };
 
   render() {
-  const isLoggedIn = false;
+    const isLoggedIn = false;
 
-    const notificationsList = [
-      {
-        id: 1,
-        type: 'default',
-        value: 'New course available',
-      },
-      {
-        id: 2,
-        type: 'urgent',
-        value: 'New resume available',
-      },
-      {
-        id: 3,
-        type: 'urgent',
-        html: {
-          __html:
-            '<strong>Urgent requirement</strong> - complete by EOD',
-        },
-      },
-    ];
+    return (
+      <div className="min-h-screen flex flex-col">
+        <Notifications
+          displayDrawer={true}
+          notifications={notificationsList}
+        />
 
-    const coursesList = [
-      {
-        id: 1,
-        name: 'ES6',
-        credit: 60,
-      },
-      {
-        id: 2,
-        name: 'Webpack',
-        credit: 20,
-      },
-      {
-        id: 3,
-        name: 'React',
-        credit: 40,
-      },
-    ];
+        <Header />
 
-   return (
-  <div className = "min-h-screen flex flex-col">
-    <Notifications
-      displayDrawer={true}
-      notifications={notificationsList}
-    />
+        {isLoggedIn ? (
+          <BodySectionWithMarginBottom title="Course list">
+            <CourseList courses={coursesList} />
+          </BodySectionWithMarginBottom>
+        ) : (
+          <BodySectionWithMarginBottom title="Log in to continue">
+            <Login />
+          </BodySectionWithMarginBottom>
+        )}
 
-    <Header />
+        <BodySection title="News from the School">
+          <p>Holberton School News goes here</p>
+        </BodySection>
 
-    {isLoggedIn ? (
-      <BodySectionWithMarginBottom title="Course list">
-        <CourseList courses={coursesList} />
-      </BodySectionWithMarginBottom>
-    ) : (
-      <BodySectionWithMarginBottom title="Log in to continue">
-        <Login />
-      </BodySectionWithMarginBottom>
-    )}
-
-    <BodySection title="News from the School">
-      <p>Holberton School News goes here</p>
-    </BodySection>
-
-    <Footer />
-  </div>
-);
+        <Footer />
+      </div>
+    );
   }
 }
 
